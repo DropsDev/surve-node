@@ -64,6 +64,7 @@ app.post('/api/SubmitResponses', function (req, res) {
   let obj = new surveyService(req, res)
   obj.SubmitResponses();
 })
-app.listen(3000, function () {
+
+app.listen(process.env.PORT || 3000, function () {
   console.log('Survey listening on port 3000!')
 })
