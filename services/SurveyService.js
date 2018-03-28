@@ -1,7 +1,7 @@
 //Set up default mongoose connection
 
 const mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://tosin:1514Stupid!@survey-g2sxd.mongodb.net/test;'//'mongodb://127.0.0.1:27017/survey';
+var mongoDB = 'mongodb://tosin:1514Stupid!@ds127129.mlab.com:27129/heroku_rlhn90bt'//'mongodb://127.0.0.1:27017/survey';
 mongoose.connect(mongoDB);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
