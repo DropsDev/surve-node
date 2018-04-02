@@ -1,0 +1,280 @@
+{ 
+    "_id" : ObjectId("5abae025775ec60963facef7"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7ad761c1ebc2de0abbf91")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(3), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facef8"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d5f66fefad470c00767e")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(3), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facef9"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d63c6fefad470c0076ca")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(3), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facefa"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d6576fefad470c0076ea")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(2), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facefb"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d66a6fefad470c0076f6")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facefc"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8363cf399eac8554d1d6e")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facefd"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8365bf399eac8554d1d79")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(2), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facefe"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab83672f399eac8554d1d82")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(3), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963faceff"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8368af399eac8554d1d89")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(3), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae025775ec60963facf00"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8369ef399eac8554d1d91")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(3), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf01"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7ad761c1ebc2de0abbf91")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(1), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf02"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d5f66fefad470c00767e")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf03"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d63c6fefad470c0076ca")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(2), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf04"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d6576fefad470c0076ea")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf05"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab7d66a6fefad470c0076f6")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(2), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf06"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8363cf399eac8554d1d6e")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf07"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8365bf399eac8554d1d79")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf08"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab83672f399eac8554d1d82")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(2), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf09"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8368af399eac8554d1d89")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abae0ad775ec60963facf0a"), 
+    "User" : [
+
+    ], 
+    "Question" : [
+        ObjectId("5ab8369ef399eac8554d1d91")
+    ], 
+    "Survey" : [
+        null
+    ], 
+    "Value" : NumberInt(4), 
+    "__v" : NumberInt(0)
+}

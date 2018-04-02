@@ -4,18 +4,21 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var UserSchema = new Schema({
-  FirstName: String,
-  OtherName: String,
+  OtherNames: String,
   LastName: String,
-  DisplayName: String,
+  UserName: String,
+  DOB : String,
+
+  Email :  {type:String,unique:true},
   Password: String, 
-  IsAdmin: Boolean,
-  Location: String,
-  Age : Number,
-  EmailAddress : String,//{type:String,unique:true},
+
+  LGA:String,
+  State:String,
+  School :String,
+  Class :String,
   Created_at: Date,
   Updated_at: Date,
-  SchoolID :Number
+  IsAdmin: Boolean
 });
 
 // the schema is useless so far

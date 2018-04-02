@@ -8,7 +8,8 @@ var SurveySchema = new Schema({
   Description: String,
   Instructions :String,
   Questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }],
-  Group :[{type: Schema.Types.ObjectId, ref: 'Group'} ],
+  Group :String,
+  Order:Number
 });
 
 // the schema is useless so far

@@ -1,0 +1,17 @@
+{ 
+    "_id" : ObjectId("5ab79efcb130cd2b883bc683"), 
+    "LastName" : "Yadeka", 
+    "FirstName" : "Tosin", 
+    "Location" : "Lagos", 
+    "Age" : NumberInt(23), 
+    "DisplayName" : "Tosin.Yadeka", 
+    "Password" : "P@ssw0rd123", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab97a1b19dd5319d9a42b1a"), 
+    "Password" : "Hous=", 
+    "FirstName" : "Dele", 
+    "LastName" : "Giwa", 
+    "__v" : NumberInt(0)
+}

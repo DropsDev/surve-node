@@ -4,13 +4,21 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var ResponseItemSchema = new Schema({
-    Response:[
-        {type: Schema.Types.ObjectId, ref: 'User'}
-      ],
-    Question:[
-        {type: Schema.Types.ObjectId, ref: 'Question'}
-      ],
-    ResponseItemText : String
+  Question: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Question'
+  }],
+  Response: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Response'
+  }],
+  Survey: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Survey'
+  }],
+  QuestionText: String,
+  Value: Number,
+  DateAdded: Date
 });
 
 // the schema is useless so far

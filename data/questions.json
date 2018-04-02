@@ -1,0 +1,79 @@
+{ 
+    "_id" : ObjectId("5ab7ad761c1ebc2de0abbf91"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "On Scale of 1 - 4 , Do you agree there's a drug problem", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab7d5f66fefad470c00767e"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use of Tramadol", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab7d63c6fefad470c0076ca"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use of Valium", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab7d6576fefad470c0076ea"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use of Cocaine", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab7d66a6fefad470c0076f6"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use of Ectasy", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab8363cf399eac8554d1d6e"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use Of Rohypnol"
+}
+{ 
+    "_id" : ObjectId("5ab8365bf399eac8554d1d79"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use Of Ketamine", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab83672f399eac8554d1d82"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use Of LSD", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab8368af399eac8554d1d89"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use Of Heroine", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab8369ef399eac8554d1d91"), 
+    "Survey" : [
+        ObjectId("5ab7ac36ea1e1a2dab419e70")
+    ], 
+    "QuestionText" : "Use Of Codeine", 
+    "__v" : NumberInt(0)
+}

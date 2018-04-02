@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const surveyService  = require('./services/SurveyService')
+const dbDataService  = require('./services/DBDataService')
 const app = express()
 
 // Add headers
@@ -28,9 +29,9 @@ app.post('/api/register', function (req, res) {
   let obj = new surveyService(req, res)
   obj.RegisterUser()
 })
-app.post('/api/login', function (req, res) {
+app.post('/api/authenticate', function (req, res) {
   let obj = new surveyService(req, res)
-  obj.GetUser()
+  obj.Authenticate()
 })
 app.get('/api/users', function (req, res) {
   let obj = new surveyService(req, res)
@@ -56,15 +57,29 @@ app.get('/api/survey/questions/:id', function (req, res) {
   let obj = new surveyService(req, res)
   obj.getSurveyQuestions();
 })
-app.get('/api/survey/responses/:id', function (req, res) {
+app.get('/api/responses/:id', function (req, res) {
   let obj = new surveyService(req, res)
-  obj.getSurveyResponses();
+  obj.getResponses();
+})
+app.get('/api/survey/taken/:userId', function (req, res) {
+  let obj = new surveyService(req, res)
+  obj.getSurveyTaken();
+})
+app.post('/api/LogResponse', function (req, res) {
+  let obj = new surveyService(req, res)
+  obj.LogResponse();
 })
 app.post('/api/SubmitResponses', function (req, res) {
   let obj = new surveyService(req, res)
   obj.SubmitResponses();
+});
+app.get('/api/LastSurveyDate/:userId', function (req, res) {
+  let obj = new surveyService(req, res)
+  obj.getLastSurveyDate();
 })
-
-app.listen(process.env.PORT || 3000, function () {
+app.listen(3000, function (error) {
+  if(error){
+console.log(error);
+  }
   console.log('Survey listening on port 3000!')
 })

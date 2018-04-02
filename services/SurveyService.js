@@ -1,7 +1,7 @@
 //Set up default mongoose connection
-
 const mongoose = require('mongoose');
-var mongoDB = 'mongodb://tosin:1514Stupid!@ds127129.mlab.com:27129/heroku_rlhn90bt'//'mongodb://127.0.0.1:27017/survey';
+var mongoDB = 'mongodb://tosin:1514Stupid!@ds127129.mlab.com:27129/heroku_rlhn90bt';
+//var mongoDB ='mongodb://127.0.0.1:27017/survey';
 mongoose.connect(mongoDB);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
@@ -16,6 +16,7 @@ var Survey = require('../models/Survey');
 var Category = require('../models/SurveyCategory');
 var Question = require('../models/Question');
 var Response = require('../models/Response');
+var ResponseItem = require('../models/ResponseItem');
 
 class SurveyService {
     constructor(req, res) {
@@ -26,13 +27,14 @@ class SurveyService {
         let self = this;
         let item = this.req.body;
         // create a new user
+        item.Created_at = new Date();
         User.create(item, function (error, docs) {
             if (error) {
-                   if (error.name === 'MongoError' && error.code === 11000) {
+                if (error.name === 'MongoError' && error.code === 11000) {
                     // Duplicate username
                     return res.status(500).send({
                         succes: false,
-                        message: 'Email already exist, you can try logging in!'
+                        message: 'Email already exists, you can try logging in!'
                     });
                     throw error;
                 }
@@ -44,29 +46,34 @@ class SurveyService {
             return self.res.status(200).send(rs);
         });
     }
-  async  GetUser(){
+    async Authenticate() {
         let self = this;
-        var item = this.req.params.userdata;
-     var user =  await User.findOne({EmailAddress : item.EmailAddress});
-     if(!user){
-        self.res.status(401).send({
-            success: false,
-            message: "User does not exist"
+        var item = this.req.body;
+        var user = await User.findOne({
+            Email: item.username
         });
-     }
-     if(user.Password !=item.Password){
-        self.res.status(401).send({
-            success: false,
-            message: "User does not exist"
-        });
-     }
-     if(user.Password == item.Password){
-        self.res.status(200).send({
-            success: true,
-            data:{user:user},  
-            message: "Welcome"
-        });
-     }
+
+        if (!user) {
+            self.res.status(401).send({
+                success: false,
+                message: "User does not exist"
+            });
+        }
+        if (user.Password != item.password) {
+            self.res.status(401).send({
+                success: false,
+                message: "User does not exist"
+            });
+        }
+        if (user.Password == item.password) {
+            self.res.status(200).send({
+                success: true,
+                data: {
+                    user: user
+                },
+                message: "Welcome"
+            });
+        }
     }
     getUsers() {
         let self = this;
@@ -79,56 +86,6 @@ class SurveyService {
             });
 
             self.res.send(users);
-        });
-    }
-    CreateSurvey() {
-        let self = this;
-        let item = this.req.body;
-        // create a new user
-        var survey = Survey({
-            Name: "Narcotic Drugs -Substance Abuse",
-            Description: ""
-        });
-        survey.save(function (err) {
-            if (err) {
-                console.log(err);
-                var rs = {
-                    success: false,
-                    error: "failed"
-                }
-                return self.res.send(rs);
-            };
-            console.log('Survey created!');
-            var rs = {
-                success: true
-            }
-            return self.res.send(rs);
-        });
-    }
-    CreateQuestion() {
-        let self = this;
-        let item = this.req.body;
-        // create a new user
-        var question = Question({
-            QuestionText: "On Scale of 1 - 4 , Do you agree there's a drug problem",
-            Survey: "5ab7ac36ea1e1a2dab419e70"
-        });
-        /* Survey.questions.push (qustion-id)*/
-
-        // save the user
-        question.save(function (err) {
-            if (err) {
-                console.log(err);
-                var rs = {
-                    success: false,
-                    error: "failed"
-                }
-                return self.res.send(rs);
-            };
-            var rs = {
-                success: true
-            }
-            return self.res.send(rs);
         });
     }
     AddSchool() {
@@ -145,7 +102,6 @@ class SurveyService {
             if (err) {
                 throw err;
             };
-            console.log('School created!');
             var rs = {
                 success: true,
                 message: newSchool.Name + " Created"
@@ -157,11 +113,13 @@ class SurveyService {
     getSurveys() {
         let self = this;
         let item = this.req.body;
-        var a = Survey.find({
-            'Group': '5ab7e3726fefad470c007ce4'
-        }).populate('Questions').
+        var a = Survey.find().populate('Questions').sort({
+            'Order': 1
+        }).
         exec(function (err, result) {
-            if (err) return handleError(err);
+            if (err) {
+             throw err;
+            }
             var rs = {
                 success: true,
                 data: result
@@ -194,33 +152,83 @@ class SurveyService {
         });
 
     }
-    getSurveyResponses() {
+    getResponses() {
         let self = this;
         var id = this.req.params.id;
-        Response.find({
-            'Survey': id
-        }, function (err, results) {
+        Response.findById(id).exec(function (err, results) {
+            if(err){
+                throw err;
+            }
             var rs = {
                 success: true,
                 data: results
             }
-            self.res.send(rs);
+         self.res.send(rs);
         });
-
     }
-    SubmitResponses() {
+    getSurveyTaken() {
         let self = this;
-        let responses = this.req.body.Responses;
-        Response.insertMany(responses, function (error, docs) {
+        var userId = this.req.params.userId;
+        if (userId == 0) {
+            Response.find().sort({
+                'ResponseDate': -1
+            }).populate("Surveys").exec(function (err, results) {
+                if(err){
+                    throw err;
+                }
+                var rs = {
+                    success: true,
+                    data: results
+                }
+             self.res.send(rs);
+            });
+
+        } else {
+            Response.find({
+                'User': [userId]
+            }, function (err, results) {
+                var rs = {
+                    success: true,
+                    data: results
+                }
+                self.res.send(rs);
+            });
+        }
+    }
+    getLastSurveyDate() {
+        let self = this;
+        var userId = this.req.params.userId;
+            Response.findOne({User:userId}).sort({
+                'ResponseDate': -1
+            }).select("ResponseDate").exec(function (err, results) {
+                if(err){
+                    throw err;
+                }
+                var rs = {
+                    success: true,
+                    data: results
+                }
+             self.res.send(rs);
+            });
+    }
+    LogResponse() {
+        let self = this;
+        var item = this.req.body.Response;
+        Response.create(item, function (error, obj) {
             if (error) {
                 throw error;
-            };
+            }
             var rs = {
                 success: true,
-                message: 'Responses Submitted'
+                message: "Response logged",
+                value: obj._id
             }
-            return self.res.send(rs);
+            return self.res.status(200).send(rs);
         });
+    }
+
+    getDashboard() {
+
     }
 }
 module.exports = SurveyService

@@ -3,19 +3,34 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // create a schema
+var surveySchema = new Schema({
+  Name: 'string',
+});
 var ResponseSchema = new Schema({
-    User:[
-      {type: Schema.Types.ObjectId, ref: 'User'}
-    ],
-    Question:[
-      {type: Schema.Types.ObjectId, ref: 'Question'}
-    ], 
-    Survey:[
-      {type: Schema.Types.ObjectId, ref: 'Survey'}
-    ],
-    QuestionText:String,
-    Value:Number,
-    DateAdded :Date
+  ResponseDate: Date,
+  User: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  Surveys: 
+  [
+    {
+    Name: String,
+    RefId: String
+   }
+  ],
+  Items: [{
+    Question: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Question'
+    }],
+    Survey: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Survey'
+    }],
+    QuestionText: String,
+    Value: Number
+  }]
 });
 
 // the schema is useless so far
