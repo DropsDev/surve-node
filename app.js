@@ -77,9 +77,16 @@ app.get('/api/LastSurveyDate/:userId', function (req, res) {
   let obj = new surveyService(req, res)
   obj.getLastSurveyDate();
 })
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Survey listening on port 3000!')
+})
+
+/*
 app.listen(3000, function (error) {
   if(error){
 console.log(error);
   }
   console.log('Survey listening on port 3000!')
 })
+
+*/
