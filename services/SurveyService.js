@@ -23,16 +23,26 @@ class SurveyService {
         this.req = req
         this.res = res
     }
-    RegisterUser() {
+  async  RegisterUser() {
         let self = this;
         let item = this.req.body;
         // create a new user
         item.Created_at = new Date();
+        var alreadyexists = await User.findOne({
+            Email: item.UserName
+        }).select("Email");
+        console.log(alreadyexists);
+        if(alreadyexists){
+            return self.res.status(200).send({
+                succes: false,
+                message: 'Email already exists, you can try logging in!'
+            });
+        }
         User.create(item, function (error, docs) {
             if (error) {
                 if (error.name === 'MongoError' && error.code === 11000) {
                     // Duplicate username
-                    return res.status(500).send({
+                    return self.res.status(500).send({
                         succes: false,
                         message: 'Email already exists, you can try logging in!'
                     });
@@ -41,10 +51,10 @@ class SurveyService {
             };
             var rs = {
                 success: true,
-                message: 'User created'
+                message: 'Your Account has been created.'
             }
             return self.res.status(200).send(rs);
-        });
+        })
     }
     async Authenticate() {
         let self = this;
